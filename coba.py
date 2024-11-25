@@ -33,10 +33,10 @@ st.markdown("---")
 if query:
     tokenized_query = query.split()
     doc_scores = bm25.get_scores(tokenized_query)
-    top_n = bm25.get_top_n(tokenized_query, df_combined.index, n=7)
+    top_n = bm25.get_top_n(tokenized_query, df_combined.index, n=10)
 
     # Show top 5 recipes as buttons
-    st.markdown("<h3 style='color: #FF4500;'> Top 7 Rekomendasi:</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color: #FF4500;'> Top 10 Rekomendasi:</h3>", unsafe_allow_html=True)
     recipe_titles = df_combined.loc[top_n, 'Title'].tolist()
     
     # Create a button for each recipe

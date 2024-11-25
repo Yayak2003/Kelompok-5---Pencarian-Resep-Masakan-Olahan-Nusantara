@@ -71,7 +71,7 @@ Dibuat dengan ❤️ oleh Kelompok 5 MK Temu Kembali Informasi 2024 | UNSRI FASI
 - Hafiz Muhammad Kurniawan 09021182126003
 - Aisyah Nur Khoirofiq 09021182126004
 - Shatia Earlangga Pratama 09021182126017
-- Nur Su’udiyah 09021182126020 **(KETUA KELOMPOK)**
+- Nur Su’udiyah 09021182126020
 - Ana Safira 09021182126025
 - Tri Yogta Rahmadhan 09021182126026
 - Aditya Kurniawan 09021182126028

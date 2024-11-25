@@ -3,14 +3,14 @@ from rank_bm25 import BM25Okapi
 import pandas as pd
 
 # Load your DataFrames
-df_ayam = pd.read_pickle('processed/df_indoRecipesAyam.pkl')
-df_ikan = pd.read_pickle('processed/df_indoRecipesIkan.pkl')
-df_kambing = pd.read_pickle('processed/df_indoRecipesKambing.pkl')
-df_sapi = pd.read_pickle('processed/df_indoRecipesSapi.pkl')
-df_tahu = pd.read_pickle('processed/df_indoRecipesTahu.pkl')
-df_tempe = pd.read_pickle('processed/df_indoRecipesTempe.pkl')
-df_telur = pd.read_pickle('processed/df_indoRecipesTelur.pkl')
-df_udang = pd.read_pickle('processed/df_indoRecipesUdang.pkl')
+df_ayam = pd.read_pickle('model/df_indoRecipesAyam.pkl')
+df_ikan = pd.read_pickle('model/df_indoRecipesIkan.pkl')
+df_kambing = pd.read_pickle('model/df_indoRecipesKambing.pkl')
+df_sapi = pd.read_pickle('model/df_indoRecipesSapi.pkl')
+df_tahu = pd.read_pickle('model/df_indoRecipesTahu.pkl')
+df_tempe = pd.read_pickle('model/df_indoRecipesTempe.pkl')
+df_telur = pd.read_pickle('model/df_indoRecipesTelur.pkl')
+df_udang = pd.read_pickle('model/df_indoRecipesUdang.pkl')
 
 # Combine the DataFrames
 df_combined = pd.concat([df_ayam, df_ikan, df_kambing, df_sapi, df_tahu, df_tempe, df_telur, df_udang], ignore_index=True)

@@ -12,7 +12,6 @@ df_tempe = pd.read_pickle('processed/df_indoRecipesTempe.pkl')
 df_telur = pd.read_pickle('processed/df_indoRecipesTelur.pkl')
 df_udang = pd.read_pickle('processed/df_indoRecipesUdang.pkl')
 
-
 # Combine the DataFrames
 df_combined = pd.concat([df_ayam, df_ikan, df_kambing, df_sapi, df_tahu, df_tempe, df_telur, df_udang], ignore_index=True)
 
@@ -27,7 +26,7 @@ st.markdown("<h1 style='text-align: center; color: #FF6347;'>🍽️ Resep Makan
 st.markdown("<p style='text-align: center; font-size: 18px;'>Temukan resep terbaik berdasarkan bahan yang kamu inginkan!</p>", unsafe_allow_html=True)
 
 # User enters a query
-query = st.text_input("🔍 Masukkan kata kunci pencarian resep (contoh: ayam, ikan, telur,sapi, kambing dll.):")
+query = st.text_input("🔍 Masukkan kata kunci pencarian resep (contoh: ayam, ikan, telur, sapi, kambing dll.):")
 st.markdown("---")
 
 if query:
@@ -35,16 +34,19 @@ if query:
     doc_scores = bm25.get_scores(tokenized_query)
     top_n = bm25.get_top_n(tokenized_query, df_combined.index, n=10)
 
-    # Show top 5 recipes as buttons
+    # Simulasi hasil ideal (misalnya, semua resep yang mengandung query di Title)
+    ideal_results = df_combined[df_combined['Title'].str.contains(query, case=False, na=False)].index
+
+    # Tampilkan rekomendasi
     st.markdown("<h3 style='color: #FF4500;'> Top 10 Rekomendasi:</h3>", unsafe_allow_html=True)
     recipe_titles = df_combined.loc[top_n, 'Title'].tolist()
-    
-    # Create a button for each recipe
+
+    # Buat tombol untuk setiap resep
     for idx, title in zip(top_n, recipe_titles):
-        if st.button(title, key=idx):  # Using the title as button label
+        if st.button(title, key=idx):
             ingredients = df_combined.loc[idx, 'Ingredients']
             steps = df_combined.loc[idx, 'Steps']
-            
+
             # Display ingredients
             st.markdown("<h3 style='color: #4682B4;'>📝 Bahan-Bahan:</h3>", unsafe_allow_html=True)
             ingredients_list = ingredients.split('--')
